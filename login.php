@@ -31,8 +31,6 @@ if(empty($err))
     $stmt = mysqli_prepare($conn, $sql);
     mysqli_stmt_bind_param($stmt, "s", $param_username);
     $param_username = $username;
-    
-    
     // Try to execute this statement
     if(mysqli_stmt_execute($stmt)){
         mysqli_stmt_store_result($stmt);
@@ -56,7 +54,6 @@ if(empty($err))
                     }
 
                 }
-
     }
 }    
 }
@@ -93,7 +90,6 @@ if(empty($err))
     </ul>
   </div>
 </nav>
-
 <div class="container mt-4">
 <h3>Login</h3>
 <hr>

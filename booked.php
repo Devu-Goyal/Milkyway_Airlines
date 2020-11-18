@@ -43,17 +43,17 @@
 </nav>
 <div class="container mt-10">
 <hr>
-<h3>Broading-Pass</h3>
+<h3>Boarding-Pass</h3>
 <hr>
 </div>
 
 
 
   <?php
-    #session_start();
-    require_once "config.php";
-  $id=$_GET['id'];
-  $sql = "SELECT * FROM search where id='$id'";
+  #session_start();
+  require_once "config.php";
+  $fid=$_GET['fid'];
+  $sql = "SELECT * FROM fights where fid='$fid'";
   $query = mysqli_query($conn, $sql);
   echo "<table class='table table-bordered table-striped table-hover'>
   <thead>
@@ -65,29 +65,29 @@
   <thead>
     <tr>
       <th>SOURCE</th>
-      <td>';echo $resu['source'];echo'</td>
+      <td>';echo strtoupper($_SESSION['airport_source']);echo'</td>
     </tr>
   </thead>
   <tbody>
   <tr>
   <th>DESTINATION</th>
-  <td>';echo $resu['destination'];echo'</td>
+  <td>';echo strtoupper($_SESSION['airport_destination']);echo'</td>
 </tr>
 <tr>
 <th>FIGHT NO.</th>
 <td>';echo $resu['sno'];echo'</td>
 </tr>
 <tr>
-  <th>DATE & TIME</th>
-  <td>';echo $resu['time'];echo'</td>
+  <th>Duration</th>
+  <td>';echo $resu['duration']." Hours";echo'</td>
 </tr>
 <tr>
   <th>CLASS</th>
-  <td>';echo $resu['class'];echo'</td>
+  <td>';echo ucfirst($resu['class']);echo'</td>
 </tr>
 <tr>
   <th>TYPE</th>
-  <td>';echo $resu['name'];echo'</td>
+  <td>';echo ucfirst($resu['name']);echo'</td>
 </tr>
   </tbody>
 </table>

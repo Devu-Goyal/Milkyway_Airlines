@@ -79,8 +79,9 @@ if ($_SERVER['REQUEST_METHOD'] == "POST"){
   }
 
 if(empty($err))
-{
-  $sql = "SELECT * FROM search WHERE source = '$source' and destination='$destination'";
+
+{ $sql="SELECT * FROM fights WHERE source =(select aid from airport where city='$source') and destination=(select aid from airport where city='$destination')";
+  #$sql ="SELECT * FROM fights WHERE source = '$source' and destination='$destination'";
   $search = mysqli_query($conn, $sql);
   $flag=0;
 
@@ -95,7 +96,7 @@ if(empty($err))
         <th>SOURCE</th>
         <th>DESTINATION</th>
         <th>SNO</th>
-        <th>TIME</th>
+        <th>DURATION</th>
         <th>CLASS</th>
         <th>NAME</th>
         <th></th>
@@ -104,13 +105,15 @@ if(empty($err))
   {
     echo "<tbody><tr>";
     $flag=1;
-    echo "<td>".$row['source']."</td>";
-    echo "<td>".$row['destination']."</td>";
+    $_SESSION['airport_source']=$source;
+    $_SESSION['airport_destination']=$destination;
+    echo "<td>".$source."</td>";
+    echo "<td>".$destination."</td>";
     echo "<td>".$row['sno']."</td>";
-    echo "<td>".$row['time']."</td>";
+    echo "<td>".$row['duration']."</td>";
     echo "<td>".$row['class']."</td>";
     echo "<td>".$row['name']."</td>";  
-    echo "<td><a href='booked.php?id=".$row['id']."'>Check-In</a></td>"; 
+    echo "<td><a href='booked.php?fid=".$row['fid']."'>Check-In</a></td>"; 
     echo "</tr>";
   }
   if($flag==0)
@@ -122,9 +125,7 @@ if(empty($err))
 mysqli_close($conn);
 
 ?>
-
 </div>
-
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
