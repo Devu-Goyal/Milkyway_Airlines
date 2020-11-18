@@ -46,15 +46,15 @@
 <h3>Boarding-Pass</h3>
 <hr>
 </div>
-
-
-
   <?php
   #session_start();
   require_once "config.php";
   $fid=$_GET['fid'];
+  $uid=$_SESSION["id"];
   $sql = "SELECT * FROM fights where fid='$fid'";
+  $sqlquery="INSERT INTO booking (fid,id) VALUES ($fid,$uid)";
   $query = mysqli_query($conn, $sql);
+  $qury=mysqli_query($conn, $sqlquery);
   echo "<table class='table table-bordered table-striped table-hover'>
   <thead>
   </thead>";
@@ -63,6 +63,10 @@
   echo '<div class="container mt-2">
   <table class="table">
   <thead>
+  <tr>
+      <th>USERNAME</th>
+      <td>';echo strtoupper($_SESSION['username']);echo'</td>
+    </tr>
     <tr>
       <th>SOURCE</th>
       <td>';echo strtoupper($_SESSION['airport_source']);echo'</td>
@@ -86,8 +90,12 @@
   <td>';echo ucfirst($resu['class']);echo'</td>
 </tr>
 <tr>
-  <th>TYPE</th>
+  <th>NAME</th>
   <td>';echo ucfirst($resu['name']);echo'</td>
+</tr>
+<tr>
+  <th>PRICE</th>
+  <td>';echo $resu['price'];echo'</td>
 </tr>
   </tbody>
 </table>
@@ -102,6 +110,7 @@ mysqli_close($conn);
 <h3>Thanks for chossing Us</h3>
 <hr>
 <div class="main-button">
+<button class="ticket-print" onclick="window.print();">PRINT</button>
                     <a href="welcome.php">Main Menu</a>
                     <a href="logout.php">LOGOUT</a>
   </div>

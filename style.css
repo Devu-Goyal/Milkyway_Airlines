@@ -96,3 +96,19 @@
     opacity: 1;
     right: 0;
   }
+  .ticket-print
+  {
+    display: inline-block;
+    border-radius: 6px;
+    background-color: #f4511e;
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 18px;
+    width: 120px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+    text-transform: uppercase;
+    padding: 10px;
+  }

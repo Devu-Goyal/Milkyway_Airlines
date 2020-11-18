@@ -99,6 +99,7 @@ if(empty($err))
         <th>DURATION</th>
         <th>CLASS</th>
         <th>NAME</th>
+        <th>PRICE(in Rs)</th>
         <th></th>
       </thead>";
   while($row=mysqli_fetch_array($search))
@@ -112,7 +113,8 @@ if(empty($err))
     echo "<td>".$row['sno']."</td>";
     echo "<td>".$row['duration']."</td>";
     echo "<td>".$row['class']."</td>";
-    echo "<td>".$row['name']."</td>";  
+    echo "<td>".$row['name']."</td>"; 
+    echo "<td>".$row['price']."</td>";  
     echo "<td><a href='booked.php?fid=".$row['fid']."'>Check-In</a></td>"; 
     echo "</tr>";
   }

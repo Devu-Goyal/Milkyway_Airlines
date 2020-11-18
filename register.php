@@ -3,9 +3,14 @@ require_once "config.php";
 
 $contact=$add=$lname=$fname=$username = $password = $confirm_password = "";
 $username_err = $password_err = $confirm_password_err = "";
+$fname=$lname=$add=$contact="";
 
 if ($_SERVER['REQUEST_METHOD'] == "POST"){
 // Check if username is empty
+#$fname=$_POST["fname"];
+#$lname=$_POST["lname"];
+#$add=$_POST["add"];
+#$contact=$_POST["contact"];
     if(empty(trim($_POST["username"]))){
         $username_err = "Username cannot be blank";
     }
@@ -55,11 +60,12 @@ else{
 if(trim($_POST['password']) !=  trim($_POST['confirm_password'])){
     $password_err = "Passwords should match";
 }
-
+echo "raj";
 
 // If there were no errors, go ahead and insert into the database
 if(empty($username_err) && empty($password_err) && empty($confirm_password_err))
 {
+  
     $sql = "INSERT INTO users (username, password) VALUES (?, ?)";
     $stmt = mysqli_prepare($conn, $sql);
     if ($stmt)
