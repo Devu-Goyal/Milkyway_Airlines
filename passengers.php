@@ -11,7 +11,7 @@
 
                 if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !==true)
                 {
-                    header("location: flights.php");
+                    header("location: passengers.php");
                 }
 
                 require_once "config.php";
@@ -19,18 +19,18 @@
                 $s=$d=$sn=$na=$cl=$ti="";
                 $err = "";
 
-                $sql="SELECT * FROM fights";
+                $sql="SELECT * FROM passengers";
                 $search = mysqli_query($conn, $sql);
                 $flag=0;
 
                 $i=0;
                 echo "<br>";
-                echo "<h3>Flights</h3>";
+                echo "<h3>Passengers</h3>";
                 echo "<hr>";
                 echo "<table class='table table-bordered table-striped table-hover'>
                 <thead>
                     <tr>
-                        <th>SOURCE</th>
+                        <th>Name</th>
                         <th>DESTINATION</th>
                         <th>SNO</th>
                         <th>DURATION</th>
@@ -45,14 +45,8 @@
                 {
                     echo "<tbody><tr>";
                     $flag=1;
-                    echo "<td>".$row['source']."</td>";
-                    echo "<td>".$row['destination']."</td>";
-                    echo "<td>".$row['sno']."</td>";
-                    echo "<td>".$row['duration']."</td>";
-                    echo "<td>".$row['class']."</td>";
-                    echo "<td>".$row['name']."</td>";
-                    echo "<td>".$row['price']."</td>";
-                    echo "<td><a href='booked.php?fid=".$row['fid']."'>Check-In</a></td>";
+                    echo "<td>".$row['id']."</td>";
+                    echo "<td>".$row['username']."</td>";
                     echo "</tr>";
                 }
 
@@ -60,8 +54,8 @@
                 {
                     echo "NO result";
                 }
-                mysqli_close($conn);
 
+                mysqli_close($conn);
                 ?>
             </div>
         </div>
