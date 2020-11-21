@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 18, 2020 at 09:17 AM
+-- Generation Time: Nov 21, 2020 at 12:45 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.11
 
@@ -59,7 +59,62 @@ CREATE TABLE `booking` (
   `fid` int(11) NOT NULL,
   `id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
--- Error reading data for table airline_data.booking: #1064 - You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'FROM `airline_data`.`booking`' at line 1
+
+--
+-- Dumping data for table `booking`
+--
+
+INSERT INTO `booking` (`bid`, `fid`, `id`) VALUES
+(1, 2, 1),
+(2, 1, 1),
+(3, 1, 1),
+(4, 1, 1),
+(5, 1, 1),
+(6, 2, 1),
+(7, 2, 1),
+(8, 2, 1),
+(9, 2, 1),
+(10, 2, 1),
+(11, 2, 1),
+(12, 2, 1),
+(13, 2, 1),
+(14, 2, 1),
+(15, 2, 1),
+(16, 2, 1),
+(17, 2, 1),
+(18, 1, 1),
+(19, 1, 1),
+(20, 1, 1),
+(21, 1, 1),
+(22, 1, 1),
+(23, 1, 1),
+(24, 1, 1),
+(25, 1, 1),
+(26, 1, 1),
+(27, 1, 1),
+(28, 1, 1),
+(29, 1, 1),
+(30, 1, 1),
+(31, 1, 1),
+(32, 1, 1),
+(33, 1, 1),
+(34, 1, 1),
+(35, 1, 1),
+(36, 1, 1),
+(37, 1, 1),
+(38, 1, 1),
+(39, 1, 1),
+(40, 1, 1),
+(41, 1, 1),
+(42, 1, 1),
+(43, 1, 1),
+(44, 1, 1),
+(45, 1, 1),
+(46, 1, 1),
+(47, 8, 1),
+(48, 13, 1),
+(49, 12, 1),
+(50, 15, 1);
 
 -- --------------------------------------------------------
 
@@ -77,7 +132,28 @@ CREATE TABLE `fights` (
   `sno` varchar(255) NOT NULL,
   `name` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
--- Error reading data for table airline_data.fights: #1064 - You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'FROM `airline_data`.`fights`' at line 1
+
+--
+-- Dumping data for table `fights`
+--
+
+INSERT INTO `fights` (`fid`, `source`, `destination`, `duration`, `class`, `price`, `sno`, `name`) VALUES
+(1, 1, 2, '3', 'economy', '2000', 'A-1', 'spicejet'),
+(2, 1, 2, '3', 'business', '7000', 'A-16', 'Emirates'),
+(3, 2, 1, '1', 'economy', '1500', 'A-139', 'Indigo'),
+(4, 5, 6, '1', 'economy', '3000', 'A-123', 'Indigo'),
+(5, 5, 6, '2', 'business', '3000', 'A-73', 'Spicejet'),
+(6, 10, 7, '2', 'Economy', '3700', 'A-115', 'Indigo'),
+(7, 2, 3, '3', 'Economy', '2600', 'A-64', 'Emirates'),
+(8, 2, 3, '2', 'Business', '7000', 'A-63', 'Spicejet'),
+(9, 4, 3, '3', 'Economy', '4700', 'A-87', 'Luftansa'),
+(10, 1, 3, '2', 'Business', '6700', 'A-56', 'Indigo'),
+(11, 7, 3, '2', 'Economy', '3200', 'A-85', 'Economy'),
+(12, 2, 3, '3', 'Business', '7700', 'A-39', 'Emirates'),
+(13, 9, 8, '3', 'Economy', '4900', 'A-69', 'Vistara'),
+(14, 2, 8, '2', 'Business', '10000', 'A-09', 'Emirates'),
+(15, 2, 3, '4', 'Economy', '7000', 'A-863', 'Indigo'),
+(16, 3, 2, '2', 'Economy', '4600', 'A-97', 'Spicejet');
 
 -- --------------------------------------------------------
 
@@ -147,7 +223,7 @@ ALTER TABLE `airport`
 -- AUTO_INCREMENT for table `booking`
 --
 ALTER TABLE `booking`
-  MODIFY `bid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
+  MODIFY `bid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
 
 --
 -- AUTO_INCREMENT for table `fights`
